@@ -65,7 +65,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 md:h-18 md:px-6">
         {/* LOGO ENVOLVIDO COM AÇÃO DE SCROLL SUAVE */}
         <a
-          href="#"
+          href="/"
           onClick={scrollToTop}
           aria-label="Voltar ao início"
           className="cursor-pointer inline-flex items-center"

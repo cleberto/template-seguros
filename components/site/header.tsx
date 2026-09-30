@@ -33,13 +33,25 @@ export function Header() {
     }
   }, [open])
 
-  // Função que força a subida suave ao topo da tela
+// Função que limpa o hash do URL e força a subida suave imediata
   const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
+
+    // 1. Remove qualquer #hash do URL na barra de endereço sem recarregar a página
+    if (window.location.hash) {
+      window.history.pushState(
+        null,
+        '',
+        window.location.pathname + window.location.search
+      )
+    }
+
+    // 2. Executa a deslocação suave até ao topo absoluto
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     })
+
     setOpen(false)
   }
 

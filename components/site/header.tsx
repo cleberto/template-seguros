@@ -33,6 +33,16 @@ export function Header() {
     }
   }, [open])
 
+  // Função que força a subida suave ao topo da tela
+  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+    setOpen(false)
+  }
+
   return (
     <header
       className={cn(
@@ -41,7 +51,15 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 md:h-18 md:px-6">
-        <Logo />
+        {/* LOGO ENVOLVIDO COM AÇÃO DE SCROLL SUAVE */}
+        <a
+          href="#"
+          onClick={scrollToTop}
+          aria-label="Voltar ao início"
+          className="cursor-pointer inline-flex items-center"
+        >
+          <Logo />
+        </a>
 
         <nav aria-label="Principal" className="hidden lg:block">
           <ul className="flex items-center gap-1">

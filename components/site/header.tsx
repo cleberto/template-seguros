@@ -33,11 +33,10 @@ export function Header() {
     }
   }, [open])
 
-// Função que limpa o hash do URL e força a subida suave imediata
+  // Limpa o hash do URL e move a visualização imediatamente para o topo
   const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
 
-    // 1. Remove qualquer #hash do URL na barra de endereço sem recarregar a página
     if (window.location.hash) {
       window.history.pushState(
         null,
@@ -46,7 +45,6 @@ export function Header() {
       )
     }
 
-    // 2. Executa a deslocação suave até ao topo absoluto
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -63,7 +61,6 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 md:h-18 md:px-6">
-        {/* LOGO ENVOLVIDO COM AÇÃO DE SCROLL SUAVE */}
         <a
           href="/"
           onClick={scrollToTop}
